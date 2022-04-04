@@ -20,11 +20,13 @@ namespace Szamponiara.App.Pages.Ingredients
             _context = context;
         }
 
-        public IList<Ingredient> Ingredient { get;set; }
+        // QA: which collection/interface to use
+        public List<Ingredient> Ingredients { get;set; }
 
         public async Task OnGetAsync()
         {
-            Ingredient = await _context.Ingredients.ToListAsync();
+            Ingredients = await _context.Ingredients.ToListAsync();
+            Ingredients.Sort();
         }
     }
 }
