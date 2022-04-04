@@ -11,17 +11,9 @@ namespace Szamponiara.Core
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = String.Empty;
         [Required]
-        public HazardLevel HazardLevel { get; set; }
-        public string Notes { get; set; }
-    }
-
-    public enum HazardLevel
-    {
-        Positive,
-        Neutral,
-        Negative,
-        Tragic
+        public Effect Effect { get; set; }
+        public string? Notes { get; set; }
     }
 }
