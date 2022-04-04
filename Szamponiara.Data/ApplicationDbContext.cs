@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Szamponiara.Core;
 
-namespace Szamponiara.App.Data
+namespace Szamponiara.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -9,5 +10,7 @@ namespace Szamponiara.App.Data
             : base(options)
         {
         }
+
+        public DbSet<Ingredient> Ingredients { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Szamponiara.App.Data;
+using Szamponiara.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +10,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+
+    options.Password.RequiredUniqueChars = 3;
+    options.Password.RequireNonAlphanumeric = false;
+
+    //options.Lockout.
+
+    options.User.RequireUniqueEmail = true;
+});
 
 var app = builder.Build();
 

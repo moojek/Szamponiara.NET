@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szamponiara.App", "Szamponiara.App\Szamponiara.App.csproj", "{F3D772AC-4196-43A2-9E41-F91CD282F6B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Szamponiara.App", "Szamponiara.App\Szamponiara.App.csproj", "{F3D772AC-4196-43A2-9E41-F91CD282F6B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szamponiara.Core", "Szamponiara.Core\Szamponiara.Core.csproj", "{03F484AF-D034-4304-B89E-7ECA9F680DBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szamponiara.Data", "Szamponiara.Data\Szamponiara.Data.csproj", "{91DC3671-1418-4771-A994-48E4C0565267}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F3D772AC-4196-43A2-9E41-F91CD282F6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3D772AC-4196-43A2-9E41-F91CD282F6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3D772AC-4196-43A2-9E41-F91CD282F6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03F484AF-D034-4304-B89E-7ECA9F680DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03F484AF-D034-4304-B89E-7ECA9F680DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03F484AF-D034-4304-B89E-7ECA9F680DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03F484AF-D034-4304-B89E-7ECA9F680DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DC3671-1418-4771-A994-48E4C0565267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DC3671-1418-4771-A994-48E4C0565267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DC3671-1418-4771-A994-48E4C0565267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DC3671-1418-4771-A994-48E4C0565267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
