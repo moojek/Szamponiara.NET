@@ -13,18 +13,9 @@ namespace Szamponiara.App.Pages.Ingredients
 {
     public class IndexModel : PageModel
     {
-        private readonly Szamponiara.Data.ApplicationDbContext _context;
-
-        public IndexModel(Szamponiara.Data.ApplicationDbContext context)
+        public IActionResult OnGet()
         {
-            _context = context;
-        }
-
-        public IList<Ingredient> Ingredient { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            Ingredient = await _context.Ingredients.ToListAsync();
+            return RedirectToPage("List");
         }
     }
 }
