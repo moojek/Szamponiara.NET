@@ -23,7 +23,7 @@ namespace Szamponiara.App.Pages.Check
             var ingredientsStrings= IngredientsQueryString?.Split(splitters);
 
             var queryResult = from i in _context.Ingredients.AsEnumerable()
-                where (ingredientsStrings ?? Array.Empty<string>()).Any(ingredientString => ingredientString.Trim().ToLower() == i.Name)
+                where (ingredientsStrings ?? Array.Empty<string>()).Any(ingredientString => string.Equals(ingredientString.Trim(), i.Name, StringComparison.CurrentCultureIgnoreCase))
                 orderby i.Effect descending 
                 select i;
 
