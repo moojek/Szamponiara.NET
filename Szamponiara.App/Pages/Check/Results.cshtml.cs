@@ -18,6 +18,7 @@ namespace Szamponiara.App.Pages.Check
         //QA: which collection to use
         public ReadOnlyCollection<Ingredient> Ingredients { get; set; }
         
+        //TODO: this beeing OnGet() makes refresh display empty List without warning of form resubmission
         public void OnGet()
         {
             //TODO: tidy code (null-coalescing operators)
