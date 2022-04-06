@@ -1,8 +1,4 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,12 +10,12 @@ namespace Szamponiara.App.Pages.Ingredients
 {
     public class EditModel : PageModel
     {
-        private readonly Szamponiara.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly IHtmlHelper htmlHelper;
 
         public IEnumerable<SelectListItem> Effects { get; set; }
 
-        public EditModel(Szamponiara.Data.ApplicationDbContext context, IHtmlHelper htmlHelper)
+        public EditModel(ApplicationDbContext context, IHtmlHelper htmlHelper)
         {
             _context = context;
             this.htmlHelper = htmlHelper;
@@ -66,10 +62,8 @@ namespace Szamponiara.App.Pages.Ingredients
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+
+                throw;
             }
 
             return RedirectToPage("./Index");

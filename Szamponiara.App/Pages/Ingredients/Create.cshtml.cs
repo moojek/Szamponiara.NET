@@ -1,8 +1,4 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,12 +9,12 @@ namespace Szamponiara.App.Pages.Ingredients
 {
     public class CreateModel : PageModel
     {
-        private readonly Szamponiara.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly IHtmlHelper htmlHelper;
 
         public IEnumerable<SelectListItem> Effects { get; set; }
 
-        public CreateModel(Szamponiara.Data.ApplicationDbContext context, IHtmlHelper htmlHelper)
+        public CreateModel(ApplicationDbContext context, IHtmlHelper htmlHelper)
         {
             _context = context;
             this.htmlHelper = htmlHelper;

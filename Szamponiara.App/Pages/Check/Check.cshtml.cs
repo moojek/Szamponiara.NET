@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using Szamponiara.Core;
 using Szamponiara.Data;
 
 namespace Szamponiara.App.Pages.Check
@@ -12,9 +11,9 @@ namespace Szamponiara.App.Pages.Check
         private readonly char[] splitters = {' ', ';', ','};
 
         [BindProperty]
-        public string IngredientsQueryString { get; set; }
+        public string? IngredientsQueryString { get; set; }
 
-        public CheckModel(Szamponiara.Data.ApplicationDbContext context)
+        public CheckModel(ApplicationDbContext context)
         {
             _context = context;
         }
