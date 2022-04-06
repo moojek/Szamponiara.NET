@@ -1,6 +1,9 @@
-﻿<form method="post">
+﻿@model Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+
+@* QA: how to make validation here (ensure non empty) *@
+<form method="post" asp-page="/Check/Check">
     <div class="mb-3">
-        <textarea class="form-control" id="ingredientList" rows="3"></textarea>
+        <textarea class="form-control" name="IngredientsQueryString" rows="3"></textarea>
     </div>
     <input class="btn btn-primary" type="submit" value="Check your product" />
 </form>
