@@ -21,7 +21,7 @@ namespace Szamponiara.App.Pages.Ingredients
         public async Task OnGetAsync()
         {
             Ingredients = await _context.Ingredients.ToListAsync();
-            Ingredients.Sort();
+            Ingredients.Sort((i1, i2) => string.Compare(i1.Name, i2.Name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
