@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
@@ -5,6 +6,7 @@ using Szamponiara.Data;
 
 namespace Szamponiara.App.Pages.Check
 {
+    [AllowAnonymous]
     public class CheckModel : PageModel
     {
         private readonly ApplicationDbContext _context;

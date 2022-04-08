@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Szamponiara.Core;
@@ -6,6 +7,7 @@ using Szamponiara.Data;
 
 namespace Szamponiara.App.Pages.Ingredients
 {
+    [AllowAnonymous]
     public class ListModel : PageModel
     {
         private readonly ApplicationDbContext _context;
@@ -16,7 +18,7 @@ namespace Szamponiara.App.Pages.Ingredients
         }
 
         // QA: which collection/interface to use
-        public List<Ingredient> Ingredients { get;set; }
+        public List<Ingredient> Ingredients { get; set; }
 
         public async Task OnGetAsync()
         {

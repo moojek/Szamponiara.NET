@@ -6,9 +6,12 @@ namespace Szamponiara.Core
     {
         public int Id { get; set; }
         [Required]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
         [Required]
         public Effect Effect { get; set; }
         public string? Notes { get; set; }
+        
+        public string? OwnerId { get; set; }
+        public IngredientStatus Status { get; set; }
     }
 }

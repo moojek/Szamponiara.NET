@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using Szamponiara.Core;
@@ -6,6 +7,7 @@ using Szamponiara.Data;
 
 namespace Szamponiara.App.Pages.Check
 {
+    [AllowAnonymous]
     public class ResultsModel : PageModel
     {
         private readonly ApplicationDbContext _context;
