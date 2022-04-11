@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Szamponiara.App.Authorization;
 using Szamponiara.Core;
 using Szamponiara.Data;
 
@@ -16,8 +17,7 @@ namespace Szamponiara.App.Pages.Ingredients
             _context = context;
         }
 
-        [BindProperty]
-        public Ingredient Ingredient { get; set; }
+        [BindProperty] public Ingredient Ingredient { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,6 +32,13 @@ namespace Szamponiara.App.Pages.Ingredients
             {
                 return NotFound();
             }
+
+            var isAuthorized = User.IsInRole(Roles.IngredientsAdmin);
+            if (!isAuthorized)
+            {
+                return Forbid();
+            }
+
             return Page();
         }
 
@@ -47,6 +54,12 @@ namespace Szamponiara.App.Pages.Ingredients
             if (Ingredient == null)
             {
                 return RedirectToPage("./Index");
+            }
+
+            var isAuthorized = User.IsInRole(Roles.IngredientsAdmin);
+            if (!isAuthorized)
+            {
+                return Forbid();
             }
 
             _context.Ingredients.Remove(Ingredient);

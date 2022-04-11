@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,13 +12,15 @@ namespace Szamponiara.App.Pages.Ingredients
     {
         private readonly ApplicationDbContext _context;
         private readonly IHtmlHelper htmlHelper;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public IEnumerable<SelectListItem> Effects { get; set; }
 
-        public CreateModel(ApplicationDbContext context, IHtmlHelper htmlHelper)
+        public CreateModel(ApplicationDbContext context, IHtmlHelper htmlHelper, UserManager<IdentityUser> userManager)
         {
             _context = context;
             this.htmlHelper = htmlHelper;
+            _userManager = userManager;
             Effects = htmlHelper.GetEnumSelectList<Effect>();
         }
 
@@ -26,8 +29,7 @@ namespace Szamponiara.App.Pages.Ingredients
             return Page();
         }
 
-        [BindProperty]
-        public Ingredient Ingredient { get; set; }
+        [BindProperty] public Ingredient Ingredient { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -36,6 +38,10 @@ namespace Szamponiara.App.Pages.Ingredients
             {
                 return Page();
             }
+
+            Ingredient.OwnerId = _userManager.GetUserId(User);
+
+            // TODO: initialize Ingredient.Status with relevance to user's role
 
             _context.Ingredients.Add(Ingredient);
             await _context.SaveChangesAsync();
